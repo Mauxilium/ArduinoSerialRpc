@@ -14,7 +14,7 @@ The communication is a point to point model, performed through the serial (USB) 
  
 ## Architecture
 
-XXXX
+Tbdf
 
 ## Features
 
