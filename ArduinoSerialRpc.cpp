@@ -48,7 +48,7 @@ String getCardName(String ignored) {
 //
 ArduinoSerialRpc::ArduinoSerialRpc(String name) {
     cardName = name;
-    this->registerArduinoAction("GetCardName", getCardName);
+    this->registerArduinoFunction("GetCardName", getCardName);
 }
 
 //
@@ -142,19 +142,19 @@ void ArduinoSerialRpc::serialEventHandler() {
 
 	switch (argType) {
       case VOID_ARG_PREAMBLE:
-        doAction(cmdString);
+        doFunction(cmdString);
       break;
       case INT_INT_ARG_PREAMBLE: {
 	    String arg1 = arg.substring(0, arg.indexOf(','));
 		String arg2 = arg.substring(arg1.length()+1);
-        doAction(cmdString, (int)arg1.toInt(), (int)arg2.toInt());
+        doFunction(cmdString, (int)arg1.toInt(), (int)arg2.toInt());
 	  }
       break;
       case FLOAT_ARG_PREAMBLE:
-        doAction(cmdString, arg.toFloat());
+        doFunction(cmdString, arg.toFloat());
       break;
 	  case STRING_ARG_PREAMBLE:
-        doAction(cmdString, arg);
+        doFunction(cmdString, arg);
       break;
       default:
 	    Serial.println(ERROR_PREAMBLE);
