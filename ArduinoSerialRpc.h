@@ -35,19 +35,19 @@ public:
 	 // External To Internal Setup Interface
 	 // The given referenceName is a logical name used by the external application to indicate which function must be executed.
 	 //
-	 void registerArduinoAction(String referenceName, void (*functionToCall)(void));
-     void registerArduinoAction(String referenceName, int (*functionToCall)(int, int));
-     void registerArduinoAction(String referenceName, float (*functionToCall)(float));     
-     void registerArduinoAction(String referenceName, String (*functionToCall)(String));
+	 void registerArduinoFunction(String referenceName, void (*functionToCall)(void));
+     void registerArduinoFunction(String referenceName, int (*functionToCall)(int, int));
+     void registerArduinoFunction(String referenceName, float (*functionToCall)(float));     
+     void registerArduinoFunction(String referenceName, String (*functionToCall)(String));
      
      //
 	 // Handling of Remote Calling
 	 // The given methodToCall is the name of a method inside the remote application
 	 //
-     void executeRemoteAction(String methodToCall);
-     void executeRemoteAction(String methodToCall, int arg1, int arg2);
-     void executeRemoteAction(String methodToCall, float arg);
-	 void executeRemoteAction(String methodToCall, String arg);
+     void executeRemoteMethod(String methodToCall);
+     void executeRemoteMethod(String methodToCall, int arg1, int arg2);
+     void executeRemoteMethod(String methodToCall, float arg);
+	 void executeRemoteMethod(String methodToCall, String arg);
 	 
 	 //
 	 // Utility message sender
@@ -90,11 +90,11 @@ private:
 
 
     // Internal executors
-    void doAction(String requiredFunction);
-	void doAction(String requiredFunction, int arg1);
-    void doAction(String requiredFunction, int arg1, int arg2);
-    void doAction(String requiredFunction, float arg1);
-	void doAction(String requiredFunction, String arg1);
+    void doFunction(String requiredFunction);
+	void doFunction(String requiredFunction, int arg1);
+    void doFunction(String requiredFunction, int arg1, int arg2);
+    void doFunction(String requiredFunction, float arg1);
+	void doFunction(String requiredFunction, String arg1);
 
     // Internal Services
     void sendErrorOfUnknowCommand(String calledSignature, String unknowMethod);

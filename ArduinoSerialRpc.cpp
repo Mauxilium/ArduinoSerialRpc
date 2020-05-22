@@ -54,7 +54,7 @@ ArduinoSerialRpc::ArduinoSerialRpc(String name) {
 //
 // External To Internal Setup Interface
 //
-void ArduinoSerialRpc::registerArduinoAction(String referenceName, void (*functionToCall)(void)) {
+void ArduinoSerialRpc::registerArduinoFunction(String referenceName, void (*functionToCall)(void)) {
   void_void_function_item *newItem = new void_void_function_item();
   newItem->functionName = referenceName;
   newItem->functionToCall = functionToCall;
@@ -71,7 +71,7 @@ void ArduinoSerialRpc::registerArduinoAction(String referenceName, void (*functi
   }
   Serial.setTimeout(SERIAL_TIMEOUT);
 }
-void ArduinoSerialRpc::registerArduinoAction(String referenceName, int (*functionToCall)(int, int)) {
+void ArduinoSerialRpc::registerArduinoFunction(String referenceName, int (*functionToCall)(int, int)) {
   int_int_int_function_item *newItem = new int_int_int_function_item();
   newItem->functionName = referenceName;
   newItem->functionToCall = functionToCall;
@@ -88,7 +88,7 @@ void ArduinoSerialRpc::registerArduinoAction(String referenceName, int (*functio
   }
   Serial.setTimeout(SERIAL_TIMEOUT);
 }
-void ArduinoSerialRpc::registerArduinoAction(String referenceName, float (*functionToCall)(float)) {
+void ArduinoSerialRpc::registerArduinoFunction(String referenceName, float (*functionToCall)(float)) {
   float_float_function_item *newItem = new float_float_function_item();
   newItem->functionName = referenceName;
   newItem->functionToCall = functionToCall;
@@ -105,7 +105,7 @@ void ArduinoSerialRpc::registerArduinoAction(String referenceName, float (*funct
   }
   Serial.setTimeout(SERIAL_TIMEOUT);
 }
-void ArduinoSerialRpc::registerArduinoAction(String referenceName, String (*functionToCall)(String)) {
+void ArduinoSerialRpc::registerArduinoFunction(String referenceName, String (*functionToCall)(String)) {
   string_string_function_item *newItem = new string_string_function_item();
   newItem->functionName = referenceName;
   newItem->functionToCall = functionToCall;
@@ -168,7 +168,7 @@ void ArduinoSerialRpc::serialEventHandler() {
 		Serial.flush();
     }
 }
-void ArduinoSerialRpc::doAction(String requiredFunction) {
+void ArduinoSerialRpc::doFunction(String requiredFunction) {
   void_void_function_item *theItem = void_void_functions_list;
   while (theItem->functionName != requiredFunction) {
     if (theItem->nextItem == NULL) {
@@ -183,7 +183,7 @@ void ArduinoSerialRpc::doAction(String requiredFunction) {
   Serial.println(VOID_ARG_PREAMBLE);
   Serial.flush();
 }
-void ArduinoSerialRpc::doAction(String requiredFunction, int arg1, int arg2) {
+void ArduinoSerialRpc::doFunction(String requiredFunction, int arg1, int arg2) {
   int_int_int_function_item *theItem = int_int_int_functions_list;
   while (theItem->functionName != requiredFunction) {
     if (theItem->nextItem == NULL) {
@@ -199,7 +199,7 @@ void ArduinoSerialRpc::doAction(String requiredFunction, int arg1, int arg2) {
   Serial.println(result);
   Serial.flush();
 }
-void ArduinoSerialRpc::doAction(String requiredFunction, float arg) {
+void ArduinoSerialRpc::doFunction(String requiredFunction, float arg) {
   float_float_function_item *theItem = float_float_functions_list;
   while (theItem->functionName != requiredFunction) {
     if (theItem->nextItem == NULL) {
@@ -215,7 +215,7 @@ void ArduinoSerialRpc::doAction(String requiredFunction, float arg) {
   Serial.println(result);
   Serial.flush();
 }
-void ArduinoSerialRpc::doAction(String requiredFunction, String arg) {
+void ArduinoSerialRpc::doFunction(String requiredFunction, String arg) {
   string_string_function_item *theItem = string_string_functions_list;
   while (theItem->functionName != requiredFunction) {
     if (theItem->nextItem == NULL) {
@@ -236,14 +236,14 @@ void ArduinoSerialRpc::doAction(String requiredFunction, String arg) {
 //
 // Execution request models directed to the external program (connected to the Arduino by the way of serial cable)
 //
-void ArduinoSerialRpc::executeRemoteAction(String methodToCall) {
+void ArduinoSerialRpc::executeRemoteMethod(String methodToCall) {
   Serial.println("");
   Serial.println(CMD_PREAMBLE);
   Serial.println(methodToCall);
   Serial.println(VOID_ARG_PREAMBLE);
   Serial.flush();
 }
-void ArduinoSerialRpc::executeRemoteAction(String methodToCall, int arg1, int arg2) {
+void ArduinoSerialRpc::executeRemoteMethod(String methodToCall, int arg1, int arg2) {
   Serial.println("");
   Serial.println(CMD_PREAMBLE);
   Serial.println(methodToCall);
@@ -252,7 +252,7 @@ void ArduinoSerialRpc::executeRemoteAction(String methodToCall, int arg1, int ar
   Serial.println(arg2);
   Serial.flush();
 }
-void ArduinoSerialRpc::executeRemoteAction(String methodToCall, float arg1) {
+void ArduinoSerialRpc::executeRemoteMethod(String methodToCall, float arg1) {
   Serial.println("");
   Serial.println(CMD_PREAMBLE);
   Serial.println(methodToCall);
@@ -260,7 +260,7 @@ void ArduinoSerialRpc::executeRemoteAction(String methodToCall, float arg1) {
   Serial.println(arg1);
   Serial.flush();
 }
-void ArduinoSerialRpc::executeRemoteAction(String methodToCall, String arg1) {
+void ArduinoSerialRpc::executeRemoteMethod(String methodToCall, String arg1) {
   Serial.println("");
   Serial.println(CMD_PREAMBLE);
   Serial.println(methodToCall);

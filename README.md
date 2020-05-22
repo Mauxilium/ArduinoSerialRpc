@@ -14,7 +14,7 @@ The communication is a point to point model, performed through the serial (USB) 
  
 ## Architecture
 
-XXXX
+tbdf
 
 ## Features
 
@@ -48,7 +48,7 @@ void setup() {
   Serial.begin(9600); // or any other supported value
 
   // Other languages can use "callIt" string to force the execution of myMethod function
-  rpc.registerArduinoAction("callIt", myMethod);
+  rpc.registerArduinoFunction("callIt", myMethod);
 }
 
 void myMethod() {
@@ -59,7 +59,7 @@ void myMethod() {
 void loop() {
     // Here Arduino calls a method of the remote program program.
     // No registration is required
-    rpc.executeRemoteAction("pingFromArduino");
+    rpc.executeRemoteMethod("pingFromArduino");
 }
 ```
 
