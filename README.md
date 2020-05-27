@@ -2,9 +2,9 @@
 
 ArduinoSerialRpc is the Arduino side part of a serial communication library with Arduino Card.
 
-There are some other projects to interact with this one:
-* [Java side](https://github.com/Mauxilium/ArduinoJavaSerialRpc) - text
-* [Python side](https://github.com/Mauxilium/ArduinoPythonSerialRpc) - text
+There are some other projects used to interact with this one:
+* [Java side communication library](https://github.com/Mauxilium/ArduinoJavaSerialRpc)
+* [Python side communication library](https://github.com/Mauxilium/ArduinoPythonSerialRpc)
 
 The communication model is implemented in form of:
 * Remote Method Invocation. Where Arduino calls a method declared into a Java class.
@@ -31,10 +31,10 @@ It is required to:
  * expand it into your "library" path of Arduino Ide,
   or follows the manual installation section of https://www.arduino.cc/en/guide/libraries
   
-## Other Language Side Installation
+## Other Languages Installation
 Please refer to others repositories:
-* Java side: ArduinoJavaSerialRpc
-* Python side: ArduinoPythonSerialRpc
+* [Java](https://github.com/Mauxilium/ArduinoJavaSerialRpc)
+* [Python](https://github.com/Mauxilium/ArduinoPythonSerialRpc)
 
 ## Using it in Arduino Sketch
 ```c++
@@ -64,6 +64,6 @@ void loop() {
 ```
 
 ### Next steps
-* ArduinoJavaSerialRpc tutorial - A tutorial to discover a more complex use of library
-* ArduinoSpring - The Spring library developed on top of ArduinoJavaSeriaRpc
-* www.mauxilium.it - The reference site for my other projects
+* [ArduinoJavaSerialRpc](https://github.com/Mauxilium/ArduinoJavaSerialRpcTutorial) - A tutorial to discover a more complex use of library
+* [ArduinoSpring](https://github.com/Mauxilium/ArduinoSpring) - A Spring library developed on top of ArduinoJavaSeriaRpc
+* [www.mauxilium.it](http://www.mauxilium.it) - The reference site for my open source projects
