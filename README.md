@@ -3,8 +3,8 @@
 ArduinoSerialRpc is the Arduino side part of a serial communication library with Arduino Card.
 
 There are some other projects to interact with this one:
-* Java side: ArduinoJavaSerialRpc
-* Python side: ArduinoPythonSerialRpc
+* [Java side](https://github.com/Mauxilium/ArduinoJavaSerialRpc) - text
+* [Python side](https://github.com/Mauxilium/ArduinoPythonSerialRpc) - text
 
 The communication model is implemented in form of:
 * Remote Method Invocation. Where Arduino calls a method declared into a Java class.
