@@ -32,7 +32,7 @@ It is required to:
   or follows the manual installation section of https://www.arduino.cc/en/guide/libraries
   
 ## Other Languages Installation
-Please refer to others repositories:
+Please refer to other repositories:
 * [Java](https://github.com/Mauxilium/ArduinoJavaSerialRpc)
 * [Python](https://github.com/Mauxilium/ArduinoPythonSerialRpc)
 
@@ -64,6 +64,7 @@ void loop() {
 ```
 
 ### Next steps
-* [ArduinoJavaSerialRpc](https://github.com/Mauxilium/ArduinoJavaSerialRpcTutorial) - A tutorial to discover a more complex use of library
+* [ArduinoJavaSerialRpcTutorial](https://github.com/Mauxilium/ArduinoJavaSerialRpcTutorial) - A tutorial to discover a more complex use of library
+* [ArduinoPythonSerialRpcTutorial](https://github.com/Mauxilium/ArduinoPythonSerialRpcTutorial) - A tutorial to discover a more complex use of library
 * [ArduinoSpring](https://github.com/Mauxilium/ArduinoSpring) - A Spring library developed on top of ArduinoJavaSeriaRpc
 * [www.mauxilium.it](http://www.mauxilium.it) - The reference site for my open source projects
